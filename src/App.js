@@ -1,8 +1,8 @@
+import TimeTable from "./TimeTable/TimeTable";
+
 function App() {
   return (
-    <div>
-      hello world
-    </div>
+    <TimeTable />
   );
 }
 export default App;
