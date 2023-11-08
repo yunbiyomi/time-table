@@ -1,20 +1,29 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
 import React from 'react'
 import TimeTableRow from './TimeTableRow'
+import { withStyles } from '@mui/styles'
 import { useRecoilValue } from 'recoil'
 import { timeTableState } from '../store/store'
 
 const hourData = Array.from({length:9}, (i, j) => j+9)
 
-function TimeTable() {
+const styles = () => ({
+  Table:{
+    "& th,td": {
+      border: "1px solid rgba(224, 224, 224, 1)"
+    }
+  }
+})
+
+function TimeTable({classes}) {
 
   return (
     <>
-      <TableContainer>
-        <Typography>
+      <TableContainer sx={{width:'80%', minWidth:'650px', marginLeft:'auto', marginRight:'auto', marginTop:'100px'}}>
+        <Typography variant='h2' fontWeight={10} component='div' align='center' marginBottom='50px'>
           Time Table
         </Typography>
-        <Table>
+        <Table className={classes.Table}>
           <TableHead>
               <TableRow>
                 <TableCell align='center' width={100}>Time</TableCell>
@@ -39,4 +48,4 @@ function TimeTable() {
   )
 }
 
-export default TimeTable
+export default withStyles(styles)(TimeTable)
